@@ -1,0 +1,36 @@
+cd /home/dev/coin/GenesisH0
+
+sudo apt-get install python2.7-dev
+sudo python2.7 -m pip install scrypt construct==2.5.2
+sudo python2.7 genesis.py -a scrypt -z "MTM started At 26/Jul/2023" -t 1690340400
+
+04ffff001d01041a4d544d20737461727465642041742032362f4a756c2f32303233
+algorithm: scrypt
+merkle hash: d60d159e04d8c503e2c46fa18dc081d397e701753e81285e77820cd3919f65b9
+pszTimestamp: MTM started At 26/Jul/2023
+pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
+time: 1690340400
+bits: 0x1e0ffff0
+Searching for genesis hash..
+genesis hash found!
+nonce: 16792
+genesis hash: 4c2855a6a83e3014cd79c4b09917e734ff89c643cd17add15d19df06227c0474
+
+@@@ TEST NET @@@
+sudo python2.7 genesis.py -a scrypt -z "MTM test started At 09/Aug/2023" -t 1691506800
+[sudo] password for dev: 
+04ffff001d01041f4d544d207465737420737461727465642041742030392f4175672f32303233
+algorithm: scrypt
+merkle hash: e7bb37d0b9aa448be5627c560d6f6119e04ddffa7d77a86a647d1757b2539dc0
+pszTimestamp: MTM test started At 09/Aug/2023
+pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
+time: 1691506800
+bits: 0x1e0ffff0
+Searching for genesis hash..
+genesis hash found!
+nonce: 56826
+genesis hash: 6ce2155f0896bfd2918760c5cace30bdcbab30867d6b29fb64c8b199883815e1
+
+
+//코인의 발행량
+/home/dev/coin/bitcoin/src/consensus/amount.h
