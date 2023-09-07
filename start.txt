@@ -1,0 +1,38 @@
+start 230906
+################################################
+git clone https://github.com/c4ei/bitcoin
+git checkout -b c4exBTC
+################################################
+sudo apt-get install build-essential libtool autotools-dev automake pkg-config bsdmainutils python3
+sudo apt-get install libevent-dev libboost-dev
+sudo apt install libsqlite3-dev
+
+sudo apt install libminiupnpc-dev libnatpmp-dev
+sudo apt-get install libzmq3-dev
+sudo apt install systemtap-sdt-dev
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools
+sudo apt install qtwayland5
+sudo apt-get install libqrencode-dev
+############## unix build ######################
+cd /home/dev/coin/bitcoinc4ex
+./autogen.sh
+./configure
+make -j 4
+make install DESTDIR=/home/dev/coin/exe/linux
+############## window build ######################
+PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') # strip out problematic Windows %PATH% imported var
+sudo bash -c "echo 0 > /proc/sys/fs/binfmt_misc/status" # Disable WSL support for Win32 applications.
+cd depends
+make HOST=x86_64-w64-mingw32
+cd ..
+./autogen.sh
+CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
+make -j 4
+sudo bash -c "echo 1 > /proc/sys/fs/binfmt_misc/status" # Enable WSL support for Win32 applications.
+make install DESTDIR=/home/dev/coin/exe/win
+make deploy
+################################################
+
+
+
+

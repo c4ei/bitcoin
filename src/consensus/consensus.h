@@ -16,11 +16,13 @@ static const unsigned int MAX_BLOCK_WEIGHT = 4000000;
 /** The maximum allowed number of signature check operations in a block (network rule) */
 static const int64_t MAX_BLOCK_SIGOPS_COST = 80000;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
-static const int COINBASE_MATURITY = 100;
+// static const int COINBASE_MATURITY = 100; // 블록 100개를 캐고 난 뒤부터 모든 채굴은 승인
+static const int COINBASE_MATURITY = 10; // 블록 10개를 캐고 난 뒤부터 모든 채굴은 승인
 
 static const int WITNESS_SCALE_FACTOR = 4;
-
+//60은 유효한 직렬화된 트랜잭션 크기의 하한입니다.
 static const size_t MIN_TRANSACTION_WEIGHT = WITNESS_SCALE_FACTOR * 60; // 60 is the lower bound for the size of a valid serialized CTransaction
+//60은 유효한 직렬화된 CTransaction 크기의 하한입니다.
 static const size_t MIN_SERIALIZABLE_TRANSACTION_WEIGHT = WITNESS_SCALE_FACTOR * 10; // 10 is the lower bound for the size of a serialized CTransaction
 
 /** Flags for nSequence and nLockTime locks */

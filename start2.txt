@@ -1,0 +1,36 @@
+cd /home/dev/coin/GenesisH0
+
+sudo apt-get install python2.7-dev
+sudo python2.7 -m pip install scrypt construct==2.5.2
+GMT	Tue Sep 05 2023 15:00:00 GMT+0000
+Your Time Zone	Wed Sep 06 2023 00:00:00 GMT+0900 (한국 표준시)
+########################################################################################################################
+sudo python2.7 genesis.py -a scrypt -z "C4EX started At 06/Sep/2023" -t 1693926000
+########################################################################################################################
+dev@dev-virtual-machine:~/GenesisH0$ sudo python2.7 genesis.py -a scrypt -z "C4EX started At 06/Sep/2023" -t 1693926000
+04ffff001d01041b4334455820737461727465642041742030362f5365702f32303233
+algorithm: scrypt
+merkle hash: 31fdc40725bd5a57f5a9abec1db38465ed94559be25d078c2d15d5f9bdb6fbdb
+pszTimestamp: C4EX started At 06/Sep/2023
+pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
+time: 1693926000
+bits: 0x1e0ffff0
+Searching for genesis hash..
+genesis hash found!
+nonce: 19354
+genesis hash: e8f3b03224aaa18e53abea244826ec4ab41437dfb4fc4dbcefef318de3b15ff5
+
+
+//코인의 발행량
+/home/dev/coin/bitcoinc4ex/src/consensus/amount.h
+21000000 --> 21000000*14 -> 2억9400만개
+/home/dev/coin/bitcoinc4ex/src/kernel/chainparams.cpp
+const char* pszTimestamp = "C4EX started At 06/Sep/2023";
+/home/dev/coin/bitcoinc4ex/src/consensus/consensus.h
+
+------------- ip 
+/home/dev/coin/bitcoinc4ex/contrib/seeds/nodes_main.txt
+/home/dev/coin/bitcoinc4ex/contrib/seeds/nodes_main_manual.txt
+cd /home/dev/coin/bitcoinc4ex/contrib/seeds
+python3 generate-seeds.py . > ../../src/chainparamsseeds.h
+--> /home/dev/coin/bitcoinc4ex/src/chainparamsseeds.h
